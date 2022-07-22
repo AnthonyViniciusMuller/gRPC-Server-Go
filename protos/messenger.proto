@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "protos/";
+
+service Chat {
+  rpc GetMessages   (Void) returns (stream Message);
+  rpc SendMessage   (Message) returns (Void);
+}
+
+message Void{}
+
+message Message {
+  string Message = 1;
+  string User = 2;
+}
